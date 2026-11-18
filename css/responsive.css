@@ -1,0 +1,121 @@
+@media (max-width: 800px) {
+  header {
+    padding: 15px 5%;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 28px 20px 36px;
+    background: rgba(6, 17, 30, 0.97);
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    border-bottom: 1px solid rgba(217, 173, 104, 0.25);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .header-btn {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  section {
+    padding: 75px 5%;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .feature {
+    padding: 20px 16px;
+    min-height: 235px;
+  }
+
+  .feature h3 {
+    font-size: 23px;
+  }
+
+  .calc {
+    padding: 25px 17px;
+  }
+
+  .photo-addon {
+    padding: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .booking-form {
+    padding: 24px 17px;
+  }
+
+  .hero video {
+    object-position: 60% center;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .program-options {
+    grid-template-columns: 1fr;
+  }
+
+  .program-card {
+    padding: 26px;
+    min-height: 310px;
+  }
+
+  .program-card h3 {
+    font-size: 34px;
+  }
+
+  .duration-options {
+    gap: 6px;
+  }
+
+  .duration strong {
+    font-size: 21px;
+  }
+
+  .total {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .total strong {
+    text-align: left;
+  }
+}

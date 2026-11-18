@@ -1,0 +1,75 @@
+.program-grid {
+  max-width: 1100px;
+  margin: 55px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.program-card {
+  min-height: 340px;
+  padding: 35px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9ad6877;
+  background: linear-gradient(135deg, #1b3548, #0a1826);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: 0.35s;
+}
+
+.program-card:before {
+  content: '✧';
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font: 100px 'Cormorant Garamond', serif;
+  color: #d9ad6818;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px #0006;
+}
+
+.program-card .number {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.program-card h3 {
+  font: 400 40px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  margin-bottom: 12px;
+}
+
+.program-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #d1c7b7;
+  max-width: 440px;
+}
+
+.price {
+  font: 500 25px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  margin: 20px 0;
+}
+
+.program-card button {
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--gold2);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.program-card button:hover {
+  background: var(--gold);
+  color: #111;
+}

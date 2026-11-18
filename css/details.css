@@ -1,0 +1,97 @@
+.features {
+  max-width: 1120px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  min-height: 245px;
+  padding: 30px 25px;
+  position: relative;
+  border: 1px solid #d9ad6855;
+  background: linear-gradient(145deg, #142b3d, #0a1825);
+  transition: 0.35s;
+  overflow: hidden;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 40px #0005;
+}
+
+.feature:after {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 1px solid #d9ad681b;
+  border-radius: 50%;
+  right: -55px;
+  bottom: -60px;
+}
+
+.feature-icon {
+  width: 55px;
+  height: 55px;
+  border: 1px solid #d9ad68;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+  color: var(--gold2);
+  margin-bottom: 23px;
+}
+
+.feature h3 {
+  font: 500 27px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  margin-bottom: 12px;
+}
+
+.feature p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #d2c8b8;
+}
+
+.feature .included {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.photo-addon {
+  max-width: 720px;
+  margin: 30px auto 0;
+  border: 1px solid var(--gold);
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: linear-gradient(100deg, #172e40, #0a1927);
+}
+
+.photo-addon h3 {
+  font: 400 27px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+}
+
+.photo-addon p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.photo-addon strong {
+  font: 500 25px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  white-space: nowrap;
+}

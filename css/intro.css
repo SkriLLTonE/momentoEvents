@@ -1,0 +1,30 @@
+.intro-grid {
+  max-width: 1000px;
+  margin: 55px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.intro-item {
+  text-align: center;
+  padding: 15px;
+}
+
+.intro-item .symbol {
+  font-size: 34px;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.intro-item h3 {
+  font: 400 28px 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  margin-bottom: 12px;
+}
+
+.intro-item p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d2c8b8;
+}

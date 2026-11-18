@@ -1,0 +1,67 @@
+.booking-form {
+  max-width: 760px;
+  margin: 50px auto 0;
+  padding: 35px;
+  border: 1px solid #d9ad6877;
+  background: #0d2030;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold2);
+  margin-bottom: 9px;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 14px;
+  background: #071522;
+  border: 1px solid #796345;
+  color: white;
+  font: 13px Manrope;
+  outline: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.submit {
+  width: 100%;
+  padding: 17px;
+  background: var(--gold);
+  border: 0;
+  color: #101722;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.note {
+  text-align: center;
+  color: #a99e8d;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 15px;
+}

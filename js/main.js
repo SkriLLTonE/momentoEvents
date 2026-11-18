@@ -1,0 +1,4 @@
+initHeader();
+initCalculator();
+initBooking();
+initSnow();

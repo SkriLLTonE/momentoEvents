@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOMENTO — Новогоднее волшебство</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<canvas id="snow"></canvas>
+
+<header id="header">
+  <a href="#home" class="logo">✧ MOMENTO</a>
+  <nav id="nav">
+    <a href="#programs">Программы</a>
+    <a href="#details">Что включено</a>
+    <a href="#calculator">Стоимость</a>
+    <a href="#booking">Бронирование</a>
+  </nav>
+  <a href="#booking" class="header-btn">Заказать праздник</a>
+  <button class="menu" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav">☰</button>
+</header>
+
+<section class="hero" id="home">
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="assets/santa-momento.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <div class="eyebrow">A Christmas story by MOMENTO</div>
+    <h1>MOMENTO</h1>
+    <h2>Моменты, которые<br>становятся волшебством</h2>
+    <p>Мы привозим новогоднюю сказку туда, где её ждут</p>
+    <a href="#programs" class="outline-btn">Открыть мир волшебства ✧</a>
+  </div>
+  <a href="#intro" class="scroll">ПОГРУЗИТЕСЬ В СКАЗКУ <span>⌄</span></a>
+</section>
+
+<section class="intro" id="intro">
+  <div class="kicker">Добро пожаловать в мир MOMENTO</div>
+  <h2 class="heading">Праздник, который<br>останется в сердце</h2>
+  <div class="ornament">✧ ─── ❄ ─── ✧</div>
+  <p class="sub">Есть мгновения, которые невозможно повторить. Улыбка ребёнка, звонкий смех, долгожданная встреча с Дедом Морозом и ощущение настоящего чуда. Мы создаём именно такие воспоминания.</p>
+  <div class="intro-grid">
+    <div class="intro-item">
+      <div class="symbol">✧</div>
+      <h3>Настоящая сказка</h3>
+      <p>Дед Мороз и Снегурочка создают атмосферу праздника и дарят незабываемые эмоции.</p>
+    </div>
+    <div class="intro-item">
+      <div class="symbol">❄</div>
+      <h3>Продуманная программа</h3>
+      <p>Музыка, интерактивы, игры и волшебные эффекты — каждая минута наполнена радостью.</p>
+    </div>
+    <div class="intro-item">
+      <div class="symbol">♕</div>
+      <h3>Красивые впечатления</h3>
+      <p>Мы заботимся о деталях, чтобы праздник запомнился надолго.</p>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="kicker">Выберите свою историю</div>
+  <h2 class="heading">Новогодние программы</h2>
+  <div class="ornament">✧ ─── ❄ ─── ✧</div>
+  <p class="sub">Сказочные встречи для дома, детского сада, школы и корпоративного праздника.</p>
+  <div class="program-grid">
+    <article class="program-card">
+      <div class="number">01 / PRIVATE MAGIC</div>
+      <h3>Домашняя программа</h3>
+      <p>Дед Мороз и Снегурочка приходят в гости, чтобы подарить детям встречу, которую они будут вспоминать весь год.</p>
+      <div class="price">1 500 000 сум / 60 минут</div>
+      <button type="button" data-name="Домашняя программа" data-price="1500000">Выбрать программу →</button>
+    </article>
+    <article class="program-card">
+      <div class="number">02 / KINDER MAGIC</div>
+      <h3>Детские сады</h3>
+      <p>Праздничное представление, игры, музыка и волшебная встреча с любимыми героями для всей группы.</p>
+      <div class="price">1 500 000 сум / 60 минут</div>
+      <button type="button" data-name="Детский сад" data-price="1500000">Выбрать программу →</button>
+    </article>
+    <article class="program-card">
+      <div class="number">03 / SCHOOL MAGIC</div>
+      <h3>Школьная программа</h3>
+      <p>Яркая новогодняя программа для школьников с интерактивом, музыкой и праздничной атмосферой.</p>
+      <div class="price">1 500 000 сум / 60 минут</div>
+      <button type="button" data-name="Школьная программа" data-price="1500000">Выбрать программу →</button>
+    </article>
+    <article class="program-card">
+      <div class="number">04 / CORPORATE MAGIC</div>
+      <h3>Корпоративы</h3>
+      <p>Праздничное появление Деда Мороза и Снегурочки, поздравления гостей и атмосфера большого торжества.</p>
+      <div class="price">2 500 000 сум / 60 минут</div>
+      <button type="button" data-name="Корпоратив" data-price="2500000">Выбрать программу →</button>
+    </article>
+  </div>
+</section>
+
+<section class="details" id="details">
+  <div class="kicker">Каждая деталь имеет значение</div>
+  <h2 class="heading">Волшебство в каждой детали</h2>
+  <div class="ornament">✧ ─── ❄ ─── ✧</div>
+  <p class="sub">Мы продумали всё, чтобы ваш праздник был наполнен эмоциями, атмосферой и настоящим новогодним настроением.</p>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">♔</div>
+      <h3>Дед Мороз и Снегурочка</h3>
+      <p>Главные герои праздника, долгожданная встреча, поздравления, общение и праздничное настроение.</p>
+      <span class="included">ВКЛЮЧЕНО В ПРОГРАММУ</span>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">♫</div>
+      <h3>Музыкальное сопровождение</h3>
+      <p>Праздничная музыка и звуковое сопровождение, создающие атмосферу новогоднего торжества.</p>
+      <span class="included">ВКЛЮЧЕНО В ПРОГРАММУ</span>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">✧</div>
+      <h3>Ведущий программы</h3>
+      <p>Интерактивное общение, игры, конкурсы и вовлечение детей и гостей в праздничное действие.</p>
+      <span class="included">ВКЛЮЧЕНО В ПРОГРАММУ</span>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">❄</div>
+      <h3>Снегогенератор</h3>
+      <p>Красивый эффект падающего снега, который превращает обычное пространство в зимнюю сказку.</p>
+      <span class="included">ВКЛЮЧЕНО В ПРОГРАММУ</span>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">○</div>
+      <h3>Мыльные пузыри</h3>
+      <p>Зрелищный эффект, который добавляет программе лёгкости, красоты и детского восторга.</p>
+      <span class="included">ВКЛЮЧЕНО В ПРОГРАММУ</span>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">✧</div>
+      <h3>Праздничная атмосфера</h3>
+      <p>Сценарий и последовательность программы, чтобы каждый гость стал частью новогодней истории.</p>
+      <span class="included">ЧАСТЬ ПРОГРАММЫ</span>
+    </div>
+  </div>
+
+  <div class="photo-addon">
+    <div>
+      <h3>Сохраните мгновения</h3>
+      <p>Дополните праздник услугой профессионального фотографа.</p>
+    </div>
+    <strong>+ 500 000 сум</strong>
+  </div>
+</section>
+
+<section class="calculator" id="calculator">
+  <div class="kicker">Создайте свой праздник</div>
+  <h2 class="heading">Рассчитайте стоимость</h2>
+  <div class="ornament">✧ ─── ❄ ─── ✧</div>
+  <p class="sub">Выберите программу и дополнительные услуги — калькулятор рассчитает предварительную стоимость.</p>
+
+  <div class="calc">
+    <label class="calc-label">01 — Выберите программу</label>
+    <div class="program-options">
+      <button class="option active" type="button" data-name="Домашняя программа" data-price="1500000">
+        <span>Домашняя программа</span><small>1 500 000 сум</small>
+      </button>
+      <button class="option" type="button" data-name="Детский сад" data-price="1500000">
+        <span>Детский сад</span><small>1 500 000 сум</small>
+      </button>
+      <button class="option" type="button" data-name="Школьная программа" data-price="1500000">
+        <span>Школьная программа</span><small>1 500 000 сум</small>
+      </button>
+      <button class="option" type="button" data-name="Корпоратив" data-price="2500000">
+        <span>Корпоратив</span><small>2 500 000 сум</small>
+      </button>
+    </div>
+
+    <label class="calc-label">02 — Продолжительность</label>
+    <div class="duration-options">
+      <button class="duration active" type="button" data-duration="60"><strong>60</strong><small>МИНУТ</small></button>
+      <button class="duration" type="button" data-duration="90"><strong>90</strong><small>МИНУТ</small></button>
+      <button class="duration" type="button" data-duration="120"><strong>120</strong><small>МИНУТ</small></button>
+    </div>
+
+    <label class="calc-label">03 — Дополнительная услуга</label>
+    <div class="photo-choice">
+      <div>
+        <strong>Фотограф</strong>
+        <small>Профессиональная фотосъёмка праздника · 500 000 сум</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="photoSwitch">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="total">
+      <span>Предварительная стоимость</span>
+      <strong id="totalPrice">1 500 000 сум</strong>
+    </div>
+    <p class="calc-note">Расчёт предварительный. Для 90 минут добавляется 25% базовой стоимости, для 120 минут — 50%. Доступность команды и окончательную стоимость подтвердит менеджер.</p>
+    <button class="calc-cta" type="button">Забронировать по этой стоимости →</button>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="kicker">Начните свою новогоднюю историю</div>
+  <h2 class="heading">Забронировать праздник</h2>
+  <div class="ornament">✧ ─── ❄ ─── ✧</div>
+  <p class="sub">Оставьте заявку. Менеджер свяжется с вами, уточнит детали и подтвердит возможность бронирования.</p>
+
+  <form class="booking-form" id="bookingForm">
+    <div class="form-grid">
+      <div class="field">
+        <label for="name">Ваше имя</label>
+        <input id="name" required placeholder="Как к вам обращаться?">
+      </div>
+      <div class="field">
+        <label for="phone">Номер телефона</label>
+        <input id="phone" type="tel" required placeholder="+998 90 123 45 67" inputmode="tel" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="date">Желаемая дата</label>
+        <input id="date" type="date" required>
+      </div>
+      <div class="field">
+        <label for="time">Желаемое время</label>
+        <input id="time" type="time" required>
+      </div>
+    </div>
+    <div class="field">
+      <label for="selectedProgram">Выбранная программа</label>
+      <input id="selectedProgram" placeholder="Выберите программу выше или укажите здесь">
+    </div>
+    <div class="field">
+      <label for="selectedDuration">Продолжительность</label>
+      <input id="selectedDuration" placeholder="Например, 60 минут">
+    </div>
+    <div class="field">
+      <label for="selectedExtra">Дополнительные услуги</label>
+      <input id="selectedExtra" placeholder="Например, фотограф">
+    </div>
+    <div class="field">
+      <label for="address">Адрес проведения</label>
+      <input id="address" required placeholder="Район, улица, заведение">
+    </div>
+    <div class="field">
+      <label for="comment">Дополнительная информация</label>
+      <textarea id="comment" placeholder="Количество детей или гостей, пожелания и другие детали"></textarea>
+    </div>
+    <button class="submit" type="submit">Отправить заявку ✧</button>
+    <p class="note">Заявка не означает автоматическое бронирование. Менеджер подтвердит дату и время. Предоплата 50% — после подтверждения.</p>
+  </form>
+</section>
+
+<footer>
+  <div class="logo">✧ MOMENTO</div>
+  <p>Моменты, которые становятся волшебством.<br>Создаём новогодние впечатления в Ташкенте.</p>
+  <p>
+    <a href="https://t.me/rakhmankuloff" target="_blank" rel="noopener noreferrer">TELEGRAM @rakhmankuloff</a><br>
+    <a href="tel:+998900006580">+998 90 000 65 80</a>
+  </p>
+  <p>© MOMENTO EVENTS</p>
+</footer>
+
+<script src="js/header.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

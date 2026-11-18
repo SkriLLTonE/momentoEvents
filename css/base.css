@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #071321;
+  --bg2: #0d2030;
+  --gold: #d9ad68;
+  --gold2: #f4d9a7;
+  --white: #f6eddf;
+  --muted: #bdb5a8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Manrope, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+section {
+  padding: 100px 7%;
+  position: relative;
+}
+
+.kicker {
+  text-align: center;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.heading {
+  text-align: center;
+  font: 400 clamp(42px, 6vw, 70px) / 1.05 'Cormorant Garamond', serif;
+  color: var(--gold2);
+  margin-top: 16px;
+}
+
+.ornament {
+  text-align: center;
+  color: var(--gold);
+  margin: 22px 0 35px;
+  letter-spacing: 9px;
+}
+
+.sub {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+  color: #d2c8b8;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.header-btn,
+.outline-btn {
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  padding: 12px 22px;
+  color: var(--gold2);
+  background: transparent;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header-btn:hover,
+.outline-btn:hover {
+  background: var(--gold);
+  color: #101722;
+}
+
+#snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+section,
+footer {
+  position: relative;
+  z-index: 2;
+}
