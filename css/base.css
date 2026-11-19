@@ -102,3 +102,23 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+/* Anime.js splitText — keep layout stable */
+[data-char],
+[data-word] {
+  display: inline-block;
+}
+
+.hero h1 [data-word] {
+  white-space: nowrap;
+}
+
+.heading [data-word] {
+  transform-origin: 50% 100%;
+}
+
+.intro-item,
+.program-card,
+.feature {
+  transform-origin: center center;
+}

@@ -53,7 +53,7 @@
 
 .duration-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin-bottom: 30px;
 }
@@ -156,15 +156,31 @@
   gap: 15px;
 }
 
+.total-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
 .total span {
   font-size: 12px;
   color: #d1c4b0;
+}
+
+.total-info em {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #f2e8d5;
+  letter-spacing: 0.02em;
 }
 
 .total strong {
   font: 500 clamp(25px, 4vw, 38px) 'Cormorant Garamond', serif;
   color: var(--gold2);
   text-align: right;
+  flex-shrink: 0;
 }
 
 .calc-note {

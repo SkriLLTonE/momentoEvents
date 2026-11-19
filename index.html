@@ -177,7 +177,6 @@
     <label class="calc-label">02 — Продолжительность</label>
     <div class="duration-options">
       <button class="duration active" type="button" data-duration="60"><strong>60</strong><small>МИНУТ</small></button>
-      <button class="duration" type="button" data-duration="90"><strong>90</strong><small>МИНУТ</small></button>
       <button class="duration" type="button" data-duration="120"><strong>120</strong><small>МИНУТ</small></button>
     </div>
 
@@ -194,10 +193,13 @@
     </div>
 
     <div class="total">
-      <span>Предварительная стоимость</span>
+      <div class="total-info">
+        <span>Предварительная стоимость</span>
+        <em id="totalSelection">Домашняя программа · 60 мин</em>
+      </div>
       <strong id="totalPrice">1 500 000 сум</strong>
     </div>
-    <p class="calc-note">Расчёт предварительный. Для 90 минут добавляется 25% базовой стоимости, для 120 минут — 50%. Доступность команды и окончательную стоимость подтвердит менеджер.</p>
+    <p class="calc-note">Расчёт предварительный. Для 120 минут добавляется 50% базовой стоимости. Другую продолжительность обсудим по телефону. Доступность команды и окончательную стоимость подтвердит менеджер.</p>
     <button class="calc-cta" type="button">Забронировать по этой стоимости →</button>
   </div>
 </section>
@@ -210,44 +212,89 @@
 
   <form class="booking-form" id="bookingForm">
     <div class="form-grid">
-      <div class="field">
-        <label for="name">Ваше имя</label>
-        <input id="name" required placeholder="Как к вам обращаться?">
+    <div class="field">
+      <label for="name">Ваше имя</label>
+      <input id="name" required maxlength="120" placeholder="Как к вам обращаться?">
+    </div>
+    <div class="field">
+      <label for="phone">Номер телефона</label>
+      <input id="phone" type="tel" required maxlength="40" placeholder="+998 90 123 45 67" inputmode="tel" autocomplete="tel">
+    </div>
+      <div class="field field--picker" data-picker="date">
+        <label id="date-label" for="date-trigger">Желаемая дата</label>
+        <button
+          type="button"
+          class="picker-trigger"
+          id="date-trigger"
+          aria-labelledby="date-label"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="date-picker-popover"
+        >
+          <span class="picker-trigger__value is-placeholder" data-placeholder="Выберите дату">Выберите дату</span>
+          <span class="picker-trigger__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+        <input type="hidden" id="date" name="date" data-picker-value="date" value="" required>
       </div>
-      <div class="field">
-        <label for="phone">Номер телефона</label>
-        <input id="phone" type="tel" required placeholder="+998 90 123 45 67" inputmode="tel" autocomplete="tel">
-      </div>
-      <div class="field">
-        <label for="date">Желаемая дата</label>
-        <input id="date" type="date" required>
-      </div>
-      <div class="field">
-        <label for="time">Желаемое время</label>
-        <input id="time" type="time" required>
+      <div class="field field--picker" data-picker="time">
+        <label id="time-label" for="time-trigger">Желаемое время</label>
+        <button
+          type="button"
+          class="picker-trigger"
+          id="time-trigger"
+          aria-labelledby="time-label"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="time-picker-popover"
+        >
+          <span class="picker-trigger__value is-placeholder" data-placeholder="Выберите время">Выберите время</span>
+          <span class="picker-trigger__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <input type="hidden" id="time" name="time" data-picker-value="time" value="" required>
       </div>
     </div>
     <div class="field">
       <label for="selectedProgram">Выбранная программа</label>
-      <input id="selectedProgram" placeholder="Выберите программу выше или укажите здесь">
+      <input id="selectedProgram" readonly maxlength="200" placeholder="Выберите программу в калькуляторе выше">
     </div>
     <div class="field">
       <label for="selectedDuration">Продолжительность</label>
-      <input id="selectedDuration" placeholder="Например, 60 минут">
+      <input id="selectedDuration" readonly maxlength="80" placeholder="Выберите продолжительность в калькуляторе">
     </div>
     <div class="field">
       <label for="selectedExtra">Дополнительные услуги</label>
-      <input id="selectedExtra" placeholder="Например, фотограф">
+      <input id="selectedExtra" readonly maxlength="300" placeholder="Укажите доп. услуги в калькуляторе">
     </div>
     <div class="field">
       <label for="address">Адрес проведения</label>
-      <input id="address" required placeholder="Район, улица, заведение">
+      <input id="address" required maxlength="300" placeholder="Район, улица, заведение">
     </div>
     <div class="field">
       <label for="comment">Дополнительная информация</label>
-      <textarea id="comment" placeholder="Количество детей или гостей, пожелания и другие детали"></textarea>
+      <textarea id="comment" maxlength="1000" placeholder="Количество детей или гостей, пожелания и другие детали"></textarea>
     </div>
+    <input
+      type="text"
+      id="website"
+      name="website"
+      class="booking-honeypot"
+      autocomplete="off"
+      tabindex="-1"
+      aria-hidden="true"
+      value=""
+    >
     <button class="submit" type="submit">Отправить заявку ✧</button>
+    <p id="bookingStatus" class="booking-status" hidden aria-live="polite"></p>
     <p class="note">Заявка не означает автоматическое бронирование. Менеджер подтвердит дату и время. Предоплата 50% — после подтверждения.</p>
   </form>
 </section>
@@ -262,10 +309,14 @@
   <p>© MOMENTO EVENTS</p>
 </footer>
 
-<script src="js/header.js"></script>
+<script src="js/vendor/anime.umd.min.js"></script>
+  <script src="js/header.js"></script>
   <script src="js/calculator.js"></script>
+  <script src="js/datepicker.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/booking.js"></script>
   <script src="js/snow.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>

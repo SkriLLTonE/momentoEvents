@@ -8,6 +8,12 @@ function formatPrice(value) {
   return `${new Intl.NumberFormat('ru-RU').format(value)} сум`;
 }
 
+function updateTotalSelection() {
+  const totalSelection = document.getElementById('totalSelection');
+  if (!totalSelection) return;
+  totalSelection.textContent = `${selectedName} · ${selectedMinutes} мин`;
+}
+
 function calculate() {
   const photoSwitch = document.getElementById('photoSwitch');
   const totalPrice = document.getElementById('totalPrice');
@@ -17,6 +23,7 @@ function calculate() {
   const photo = photoSwitch.checked ? PHOTO_PRICE : 0;
   const total = Math.round(selectedPrice * multiplier + photo);
   totalPrice.textContent = formatPrice(total);
+  updateTotalSelection();
   return total;
 }
 
@@ -54,14 +61,20 @@ function selectProgram(name, price) {
   document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
 }
 
-function bookCalculated() {
+function applyCalculatorToBooking() {
   document.getElementById('selectedProgram').value = selectedName;
   document.getElementById('selectedDuration').value = `${selectedMinutes} минут`;
   document.getElementById('selectedExtra').value = document.getElementById('photoSwitch').checked
     ? 'Фотограф (+500 000 сум)'
     : 'Без дополнительных услуг';
+}
+
+function bookCalculated() {
+  applyCalculatorToBooking();
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
 }
+
+window.applyCalculatorToBooking = applyCalculatorToBooking;
 
 function initCalculator() {
   document.querySelectorAll('.option').forEach((button) => {

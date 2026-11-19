@@ -77,6 +77,27 @@
 
   .booking-form {
     padding: 24px 17px;
+    max-width: 100%;
+  }
+
+  .field input,
+  .field textarea {
+    font-size: 16px;
+    padding: 13px 12px;
+  }
+
+  .picker-trigger {
+    min-height: 48px;
+    padding: 13px 12px;
+  }
+
+  .picker-time-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: min(260px, 45vh);
+  }
+
+  .picker-popover {
+    padding: 12px;
   }
 
   .hero video {
