@@ -225,6 +225,8 @@
   gap: 8px;
   max-height: min(280px, 50vh);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   padding-right: 4px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;

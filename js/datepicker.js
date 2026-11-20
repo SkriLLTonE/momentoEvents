@@ -70,6 +70,10 @@
     popover.style.visibility = 'hidden';
     popover.hidden = false;
     popover.classList.add('is-open');
+    popover.style.maxHeight = '';
+
+    const timeList = popover.querySelector('.picker-time-list');
+    if (timeList) timeList.style.maxHeight = '';
 
     // Match the full width of the date/time field; clamp only if it would leave the viewport.
     let width = Math.round(rect.width);
@@ -82,6 +86,15 @@
 
     popover.style.width = `${width}px`;
     popover.style.maxWidth = `${maxWidth}px`;
+
+    // Keep the time grid scrollable within available viewport space.
+    if (timeList) {
+      const spaceBelow = vh - margin - (rect.bottom + gap);
+      const spaceAbove = rect.top - gap - margin;
+      const available = Math.max(120, Math.max(spaceBelow, spaceAbove) - 28);
+      const cssCap = Math.round(Math.min(280, vh * 0.5));
+      timeList.style.maxHeight = `${Math.min(cssCap, available)}px`;
+    }
 
     const height = popover.offsetHeight;
     let top = rect.bottom + gap;
@@ -297,6 +310,19 @@
       });
     }
 
+    function scrollSelectedIntoView() {
+      const list = popover.querySelector('.picker-time-list');
+      const selectedBtn = popover.querySelector('.picker-time.is-selected');
+      if (!list || !selectedBtn) return;
+
+      // Scroll only the time grid — never the page (page scroll closes the picker).
+      const listRect = list.getBoundingClientRect();
+      const btnRect = selectedBtn.getBoundingClientRect();
+      const delta =
+        (btnRect.top + btnRect.bottom) / 2 - (listRect.top + listRect.bottom) / 2;
+      list.scrollTop += delta;
+    }
+
     function open() {
       if (openPicker && openPicker !== api) openPicker.close();
       syncFromInput();
@@ -304,17 +330,16 @@
       placePopover(popover, trigger);
       trigger.setAttribute('aria-expanded', 'true');
       openPicker = api;
-
-      const selectedBtn = popover.querySelector('.picker-time.is-selected');
-      if (selectedBtn) {
-        selectedBtn.scrollIntoView({ block: 'center' });
-      }
+      scrollSelectedIntoView();
     }
 
     function close() {
+      const list = popover.querySelector('.picker-time-list');
+      if (list) list.style.maxHeight = '';
       popover.hidden = true;
       popover.classList.remove('is-open', 'is-above');
       popover.style.visibility = '';
+      popover.style.maxHeight = '';
       trigger.setAttribute('aria-expanded', 'false');
       if (openPicker === api) openPicker = null;
     }
@@ -385,7 +410,23 @@
     });
 
     window.addEventListener('resize', closeOpenPicker);
-    window.addEventListener('scroll', closeOpenPicker, true);
+
+    // Close on page scroll, but not when the user scrolls inside the picker
+    // (e.g. the time grid). Capture phase sees element scrolls too.
+    window.addEventListener('scroll', (event) => {
+      if (!openPicker) return;
+      const target = event.target;
+      if (
+        target &&
+        target !== document &&
+        target !== document.documentElement &&
+        target !== document.body &&
+        openPicker.contains(target)
+      ) {
+        return;
+      }
+      closeOpenPicker();
+    }, true);
 
     return pickers;
   }
