@@ -24,6 +24,7 @@ function calculate() {
   const total = Math.round(selectedPrice * multiplier + photo);
   totalPrice.textContent = formatPrice(total);
   updateTotalSelection();
+  applyCalculatorToBooking();
   return total;
 }
 
