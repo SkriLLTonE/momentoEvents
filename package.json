@@ -4,7 +4,7 @@
   "private": true,
   "description": "MOMENTO — новогодний лендинг",
   "scripts": {
-    "dev": "npx serve . -l 3000",
-    "start": "npx serve ."
+    "dev": "python dev-server.py 3000",
+    "start": "python dev-server.py"
   }
 }

@@ -2,6 +2,19 @@ const UZ_COUNTRY = "998";
 const PHONE_PREFIX = "+998";
 const PHONE_FORMAT_ERROR = "Укажите телефон в формате +998 99 999 99 99";
 
+/** On-screen program names stay as written. website-callback accepts only these four labels. */
+const CALLBACK_PROGRAM_BY_CHOICE = {
+  "Домашняя программа": "Домашняя программа",
+  "Детский сад": "Садик",
+  "Школьная программа": "Школа",
+  "Корпоратив": "Корпоратив",
+};
+
+function callbackProgram(choice) {
+  const label = String(choice ?? "").trim();
+  return CALLBACK_PROGRAM_BY_CHOICE[label] ?? label;
+}
+
 function phoneDigits(value) {
   return String(value ?? "").replace(/\D/g, "");
 }
@@ -109,6 +122,28 @@ function showBookingStatus(el, text, kind) {
   el.textContent = text;
   el.hidden = !text;
   el.dataset.kind = kind || "";
+}
+
+/** Clear typed fields. Date and time pickers mirror hidden inputs, so their labels reset too. */
+function resetBookingForm(form) {
+  form.reset();
+
+  const phoneEl = document.getElementById("phone");
+  if (phoneEl) phoneEl.value = "";
+
+  form.querySelectorAll(".field--picker").forEach((field) => {
+    const input = field.querySelector("input[data-picker-value]");
+    const valueEl = field.querySelector(".picker-trigger__value");
+    const trigger = field.querySelector(".picker-trigger");
+    if (input) input.value = "";
+    if (valueEl) {
+      valueEl.textContent = valueEl.dataset.placeholder || "";
+      valueEl.classList.add("is-placeholder");
+    }
+    if (trigger) trigger.classList.remove("has-value");
+  });
+
+  syncBookingFromCalculator();
 }
 
 function clampMessage(value, max, emptyMessage) {
@@ -221,7 +256,8 @@ function initBooking() {
     const date = dateEl.value.trim();
     const time = timeEl.value.trim();
     const address = addressEl.value.trim();
-    const program = programEl.value.trim();
+    const programChoice = programEl.value.trim();
+    const program = callbackProgram(programChoice);
     const duration = durationEl.value.trim();
     const extra = extraEl.value.trim();
     const comment = commentEl.value.trim();
@@ -262,7 +298,7 @@ function initBooking() {
       return;
     }
 
-    const programError = clampMessage(program, 200);
+    const programError = clampMessage(programChoice, 200);
     if (programError) {
       showBookingStatus(statusEl, programError, "error");
       return;
@@ -287,11 +323,12 @@ function initBooking() {
       return;
     }
 
-    const crmOrigin = String(window.MOMENTO_CRM_ORIGIN || "").replace(/\/$/, "");
-    if (!crmOrigin) {
+    // file:// sends Origin: null. The CRM answers that preflight with 403 and no
+    // Access-Control-Allow-Origin, so the POST never leaves the browser.
+    if (window.location.protocol === "file:") {
       showBookingStatus(
         statusEl,
-        "Адрес CRM не задан. Укажите window.MOMENTO_CRM_ORIGIN в js/config.js",
+        "Заявка не ушла: страница открыта как файл. Откройте сайт по адресу http или https.",
         "error",
       );
       return;
@@ -313,7 +350,10 @@ function initBooking() {
     if (submitBtn) submitBtn.disabled = true;
 
     try {
-      const response = await fetch(`${crmOrigin}/api/public/website-callback`, {
+      // Same-origin. The CRM allowlist rejects this site's Origin (and answers
+      // OPTIONS without CORS headers), so the page posts here and the host
+      // forwards the JSON. See api/public/website-callback.js and dev-server.py.
+      const response = await fetch("/api/public/website-callback", {
         method: "POST",
         credentials: "omit",
         headers: { "Content-Type": "application/json" },
@@ -328,11 +368,13 @@ function initBooking() {
       }
 
       if (response.status === 200 && data && data.ok === true) {
+        resetBookingForm(form);
         showBookingStatus(
           statusEl,
-          "Заявка отправлена, менеджер свяжется с вами",
+          "Заявка отправлена. Менеджер свяжется с вами.",
           "success",
         );
+        statusEl?.scrollIntoView({ behavior: "smooth", block: "nearest" });
         return;
       }
 

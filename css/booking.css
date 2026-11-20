@@ -342,7 +342,12 @@
 }
 
 .booking-status[data-kind="success"] {
-  color: #c8e6c9;
+  color: var(--gold2);
+  background: rgba(217, 173, 104, 0.12);
+  border: 1px solid #d9ad6877;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .booking-status[data-kind="error"] {
